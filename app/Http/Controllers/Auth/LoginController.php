@@ -41,7 +41,7 @@ class LoginController extends Controller
             return redirect()->back()->withInput()->withErrors($validator->errors());
         }
         $user = User::where('email', $request->email)->first();
-        if (\Hash::check($request->password, $user->password)) {
+        if ($user && \Hash::check($request->password, $user->password)) {
             Session::put('userId', $user->id);
             return redirect()->route('home');
         } else {
