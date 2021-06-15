@@ -58,13 +58,13 @@ class LoginController extends Controller
     public function process_signup(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:users,name',
+            'first_name' => 'required|unique:users,first_name',
             'email' => 'required|unique:users,email',
             'password' => 'required'
         ]);
 
         $user = User::create([
-            'name' => trim($request->input('name')),
+            'first_name' => trim($request->input('first_name')),
             'email' => strtolower($request->input('email')),
             'password' => bcrypt($request->input('password')),
         ]);

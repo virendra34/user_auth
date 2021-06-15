@@ -21,7 +21,7 @@
             <form method="post" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group">
-                    <label>Username</label>
+                    <label>Email</label>
                     <input type="text" name="email" class="form-control p_input" value="{{old('email')}}">
                 </div>
                 <div class="form-group">

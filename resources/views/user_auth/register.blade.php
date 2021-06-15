@@ -15,8 +15,8 @@
         <form method="post" action="{{ route('register') }}">
             @csrf
             <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="name" class="form-control p_input" value="{{old('name')}}">
+                <label>Firstname</label>
+                <input type="text" name="first_name" class="form-control p_input" value="{{old('first_name')}}">
             </div>
             <div class="form-group">
                 <label>Email</label>

@@ -16,7 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    return "Cache is cleared";
+});
+Route::resource('users', 'UsersController');
+Route::get('users/delete/{id}', ['as' => 'users.delete', 'uses' => 'UsersController@destroy']);
 Route::namespace('Auth')->group(function () {
     Route::get('login-form', 'LoginController@show_login_form')->name('login-form');
     Route::post('login', 'LoginController@process_login')->name('login');
